@@ -9,39 +9,45 @@ class LinkedList
     @count = 0
   end
 
-  # def append(value)
-  #   if @head.nil?
-  #     @head = Node.new(value)
-  #   elsif
-  #     current_node = @head
-  #     while current_node.next
-  #       current_node = current_node.next
-  #   else
-  #     current_node = @next_node
-  #     while current_node.next_node
-  #       current_node = current_node.next_node
-  #       end
-  #       current_node.next = Node.new(value)
-  #     end
-  #   end
-  # end
-
 
   def append(data)
     @count += 1
     if @head == nil
       @head = Node.new(data)
     else
-      @head
+      append_next_node(@head, data)
     end
-    @head.data
+    data
   end
+
+  def append_next_node(current_node, data)
+    if current_node.next_node == nil
+      current_node.next_node = Node.new(data)
+    else
+      append_next_node(current_node.next_node, data)
+    end
+  end
+
 
   def count
     @count
   end
 
-  def to_s
-    @head.data
+  def to_string
+    if @head.nil?
+      ""
+    else
+      add_to_string_array(@head)
+    end
+  end
+
+  def add_to_string_array(current_node, string_array = [])
+    if current_node.next_node.nil?
+      string_array.push(current_node.data)
+    else
+      string_array.push(current_node.data)
+      add_to_string_array(current_node.next_node, string_array)
+    end
+    string_array.join(" ")
   end
 end

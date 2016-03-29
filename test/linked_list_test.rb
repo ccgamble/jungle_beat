@@ -1,11 +1,11 @@
-gem 'minitest'
+require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require "./lib/linked_list"
-require "./lib/node"
+require_relative "../lib/node"
+require_relative "../lib/linked_list"
 
 
-class NodeTest < Minitest::Test
+class LinkedListTest < Minitest::Test
   def test_head_is_nil_at_default
     list = LinkedList.new
 
@@ -19,5 +19,13 @@ class NodeTest < Minitest::Test
 
   end
 
+  def test_to_string_outputs_for_one_beat_appended
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("jeep")
+
+    assert_equal "doop deep jeep", list.to_string
+  end
 
 end
