@@ -21,7 +21,30 @@ class LinkedListTest < Minitest::Test
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     jb.append("woo hoo shu")
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
     assert_equal 6, jb.count
+  end
+
+  def test_plays_beat
+    jb = JungleBeat.new("deep dop dop deep")
+    # require 'pry'; binding.pry
+
+    assert_equal 4, jb.play
+  end
+
+  def test_plays_beat_at_rate_of_100_and_Alice_voice
+    jb = JungleBeat.new("deep dop dop deep")
+    jb.rate = 100
+    jb.voice = "Alice"
+
+    assert_equal 4, jb.play
+  end
+
+  def test_reset_voice_and_rate
+    jb = JungleBeat.new("deep dop dop deep")
+    jb.reset_rate
+    jb.reset_voice
+
+    assert_equal 4, jb.play
   end
 end
