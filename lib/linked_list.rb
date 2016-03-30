@@ -50,4 +50,32 @@ class LinkedList
     end
     string_array.join(" ")
   end
+
+  def prepend(beat)
+    insert(0, beat)
+  end
+
+  def insert(start_point, data)
+    @count += 1
+    data.split.each_with_index do |beat, index|
+      insert_node(start_point + index, Node.new(beat))
+    end
+    data.to_s
+  end
+
+  def insert_node(start_point, new_node)
+    current_node = @head
+    if start_point == 0
+      new_node.next_node = current_node
+      @head = new_node
+    else
+      (start_point - 1).times do
+        current_node = current_node.next_node
+      end
+      spot = current_node.next_node
+      new_node.next_node = spot
+      current_node.next_node = new_node
+    end
+  end
+
 end

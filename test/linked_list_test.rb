@@ -44,4 +44,25 @@ class LinkedListTest < Minitest::Test
   end
 
 
+  def test_list_can_prepend_node_to_beginning
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("jeep")
+
+    assert_equal "dop", list.prepend("dop")
+    assert_equal 4, list.count
+    assert_equal "dop doop deep jeep", list.to_string
+  end
+
+  def test_list_can_insert_node_at_specific_spot
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("jeep")
+
+    assert_equal "woo", list.insert(1, "woo")
+    assert_equal 4, list.count
+    assert_equal "doop woo deep jeep", list.to_string
+  end
 end
