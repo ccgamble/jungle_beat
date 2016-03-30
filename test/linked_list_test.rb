@@ -65,4 +65,48 @@ class LinkedListTest < Minitest::Test
     assert_equal 4, list.count
     assert_equal "doop woo deep jeep", list.to_string
   end
+
+  def test_list_can_find_nodes
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("jeep")
+
+    assert_equal "deep jeep", list.find(1, 2)
+  end
+
+
+
+  def test_list_checks_for_included_nodes
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("jeep")
+
+    assert list.includes?("doop")
+    refute list.includes?("pizza")
+  end
+
+
+  def test_list_can_pop_one_node
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("jeep")
+
+    assert_equal "jeep", list.pop
+    assert_equal "doop deep", list.to_string
+  end
+
+  def test_list_can_pop_two_nodes
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("jeep")
+
+    assert_equal "jeep", list.pop
+    assert_equal "deep", list.pop
+    assert_equal "doop", list.to_string
+  end
+
 end

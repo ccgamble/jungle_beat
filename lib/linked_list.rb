@@ -69,7 +69,7 @@ class LinkedList
       new_node.next_node = current_node
       @head = new_node
     else
-      (start_point - 1).times do
+      (start_point-1).times do
         current_node = current_node.next_node
       end
       spot = current_node.next_node
@@ -77,5 +77,60 @@ class LinkedList
       current_node.next_node = new_node
     end
   end
+
+  def find(position, node)
+    current_node = @head
+    counter = 0
+    while counter != position
+      current_node = current_node.next_node
+      counter += 1
+    end
+    string = ""
+    node.times do
+      string << current_node.data + " "
+      current_node = current_node.next_node
+    end
+    string.strip
+  end
+
+  def includes?(beat)
+    current_node = @head
+    until current_node == nil
+      return true if current_node.data == beat
+      current_node = current_node.next_node
+    end
+  end
+
+  # def pop
+  #   current_node = @head
+  #   if @head.next_node == nil
+  #     temporary = @head.data
+  #     @head = nil
+  #   else
+  #     until current_node.next_node.next_node == nil do
+  #       current_node = current_node.next_node
+  #     end
+  #     # current_node.next_node = nil
+  #     return temporary = current_node.next_node.data
+  #     # require 'pry'; binding.pry
+  #   end
+  #
+  # end
+
+
+  def pop
+    raise "List is empty" if @count < 1
+    current_node = @head
+    if current_node.next_node.next_node == nil
+      done = true
+    else
+      current_node = current_node.next_node
+    end
+    popped_node = current_node.next_node.data
+    current_node.next_node = nil
+    @count -= 1
+    return popped_node
+  end
+
 
 end
