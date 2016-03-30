@@ -6,8 +6,3 @@ class Node
     @next_node = next_node
   end
 end
-
-# 
-# node = Node.new ("plop")
-# node.data
-# node.next_node

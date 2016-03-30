@@ -105,15 +105,13 @@ class LinkedList
   def pop
     raise "List is empty" if @count < 1
     current_node = @head
-    if current_node.next_node.next_node == nil
-      done = true
-    else
+    until current_node.next_node.next_node == nil
       current_node = current_node.next_node
     end
     popped_node = current_node.next_node.data
     current_node.next_node = nil
     @count -= 1
-    return popped_node
+    popped_node
   end
 
 

@@ -1,3 +1,4 @@
+require_relative "test_helper"
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
@@ -21,13 +22,12 @@ class LinkedListTest < Minitest::Test
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     jb.append("woo hoo shu")
-    # require 'pry'; binding.pry
+
     assert_equal 6, jb.count
   end
 
   def test_plays_beat
     jb = JungleBeat.new("deep dop dop deep")
-    # require 'pry'; binding.pry
 
     assert_equal 4, jb.play
   end
