@@ -101,22 +101,6 @@ class LinkedList
     end
   end
 
-  # def pop
-  #   current_node = @head
-  #   if @head.next_node == nil
-  #     temporary = @head.data
-  #     @head = nil
-  #   else
-  #     until current_node.next_node.next_node == nil do
-  #       current_node = current_node.next_node
-  #     end
-  #     # current_node.next_node = nil
-  #     return temporary = current_node.next_node.data
-  #     # require 'pry'; binding.pry
-  #   end
-  #
-  # end
-
 
   def pop
     raise "List is empty" if @count < 1
