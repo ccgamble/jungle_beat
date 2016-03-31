@@ -10,18 +10,18 @@ class JungleBeat
   end
 
   def append(string)
-    array = string.split(" ")
-    array.each do |node|
+    split_nodes = string.split(" ")
+    split_nodes.each do |node|
       @list.append(node)
     end
-    array.join(" ")
+    split_nodes.join(" ")
   end
 
   def count
     @list.count
   end
 
-  def play(rate = 500, voice = "Boing")
+  def play
    `say -r #{@rate} -v #{@voice} #{@beat}`
     @beat.split.count
  end
@@ -33,6 +33,4 @@ class JungleBeat
  def reset_voice
    @voice = "Boing"
  end
-
-
 end

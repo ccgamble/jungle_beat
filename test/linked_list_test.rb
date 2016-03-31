@@ -5,7 +5,6 @@ require 'minitest/pride'
 require_relative "../lib/node"
 require_relative "../lib/linked_list"
 
-
 class LinkedListTest < Minitest::Test
   def test_head_is_nil_at_default
     list = LinkedList.new
@@ -44,7 +43,6 @@ class LinkedListTest < Minitest::Test
     assert_equal 3, list.count
   end
 
-
   def test_list_can_prepend_node_to_beginning
     list = LinkedList.new
     list.append("doop")
@@ -76,8 +74,6 @@ class LinkedListTest < Minitest::Test
     assert_equal "deep jeep", list.find(1, 2)
   end
 
-
-
   def test_list_checks_for_included_nodes
     list = LinkedList.new
     list.append("doop")
@@ -87,7 +83,6 @@ class LinkedListTest < Minitest::Test
     assert list.includes?("doop")
     refute list.includes?("pizza")
   end
-
 
   def test_list_can_pop_one_node
     list = LinkedList.new
@@ -109,5 +104,4 @@ class LinkedListTest < Minitest::Test
     assert_equal "deep", list.pop
     assert_equal "doop", list.to_string
   end
-
 end

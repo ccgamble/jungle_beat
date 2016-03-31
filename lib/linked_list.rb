@@ -3,12 +3,10 @@ require_relative 'node'
 class LinkedList
   attr_accessor :head
 
-
   def initialize(head = nil)
     @head = head
     @count = 0
   end
-
 
   def append(data)
     @count += 1
@@ -27,7 +25,6 @@ class LinkedList
       append_next_node(current_node.next_node, data)
     end
   end
-
 
   def count
     @count
@@ -72,8 +69,8 @@ class LinkedList
       (start_point-1).times do
         current_node = current_node.next_node
       end
-      spot = current_node.next_node
-      new_node.next_node = spot
+      insert_spot = current_node.next_node
+      new_node.next_node = insert_spot
       current_node.next_node = new_node
     end
   end
@@ -101,7 +98,6 @@ class LinkedList
     end
   end
 
-
   def pop
     raise "List is empty" if @count < 1
     current_node = @head
@@ -113,6 +109,4 @@ class LinkedList
     @count -= 1
     popped_node
   end
-
-
 end
