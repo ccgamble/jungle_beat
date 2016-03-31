@@ -22,15 +22,15 @@ class JungleBeat
   end
 
   def play
-   `say -r #{@rate} -v #{@voice} #{@beat}`
+    `say -r #{@rate} -v #{@voice} #{@beat}`
     @beat.split.count
- end
+  end
 
- def reset_rate
-   @rate = 500
- end
+  def reset_rate
+    @rate = 500
+  end
 
- def reset_voice
-   @voice = "Boing"
- end
+  def reset_voice
+    @voice = "Boing"
+  end
 end
